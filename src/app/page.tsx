@@ -1,9 +1,12 @@
 import Navbar from "@/components/global/navbar";
 import { ContainerScroll } from "@/components/global/container-scroll-animation";
 import { Button } from "@/components/ui/button";
+import { clients } from "@/lib/constants";
+import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
+
 export default function Home() {
 	return (
-		<main>
+		<main className="flex items-center justify-center flex-col">
 			<Navbar />
 			<section className="h-screen w-full bg-neutral-950 rounded-md relative flex flex-col items-center antialiased !overflow-visible">
 				<div className="absolute inset-0 h-full w-full items-center py-24 px-5 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%]"></div>
@@ -24,9 +27,15 @@ export default function Home() {
 								</h1>
 							</div>
 						}
-					></ContainerScroll>
+					/>
 				</div>
 			</section>
+			<InfiniteMovingCards
+				className="md:mt-[40rem] mt-[100px]"
+				items={clients}
+				direction="right"
+				speed="slow"
+			/>
 		</main>
 	);
 }
